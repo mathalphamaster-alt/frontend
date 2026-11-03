@@ -1,0 +1,154 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.am-terms-page {
+    font-family: 'Poppins', sans-serif;
+    color: #1e293b;
+    background-color: #f8fafc;
+    min-height: 100vh;
+    padding: 3rem 1rem;
+    line-height: 1.6;
+}
+
+/* Header */
+.am-terms-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+
+.am-terms-header .am-badge {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0284c7;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.am-terms-header h1 {
+    font-size: 2.5rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.am-terms-header p {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+.am-terms-header a {
+    color: #0284c7;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.am-dates {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.am-terms-content {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.am-terms-content section {
+    margin-bottom: 2.5rem;
+}
+
+.am-terms-content h2 {
+    font-size: 1.3rem;
+    color: #0f172a;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.am-terms-content p {
+    font-size: 0.95rem;
+    color: #334155;
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.am-terms-content ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.am-terms-content li {
+    font-size: 0.95rem;
+    color: #334155;
+    margin-bottom: 0.5rem;
+}
+
+/* Contact Card in Section 19 */
+.contact-card {
+    background: #f1f5f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #0ea5e9;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contact-card p {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.contact-card a {
+    color: #0ea5e9;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.am-terms-footer {
+    text-align: center;
+    max-width: 800px;
+    margin: 3rem auto 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.am-terms-footer p {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+}
+
+.am-terms-footer h3 {
+    font-size: 1.1rem;
+    color: #0f172a;
+    margin: 0.5rem 0;
+}
+
+.am-tagline {
+    font-weight: 600;
+    color: #0284c7 !important;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .am-terms-header h1 { font-size: 1.8rem; }
+    .am-dates { flex-direction: column; gap: 0.5rem; }
+    .am-terms-content { padding: 1.5rem; }
+    .am-terms-content h2 { font-size: 1.1rem; }
+}
