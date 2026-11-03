@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 import './style/Navbar.css'; 
-
+import logoImage from '../assets/Master.png'; 
 function Navbar() {
     return (
         <nav className="navbar">
             <div className="logo-container">
-                <img src="./src/assets/Master.png" alt='logo' className='nav-logo '/>
-
+                <img src={logoImage} alt='logo' className='nav-logo'/>
                 <h1>ALPHA MASTER</h1>
             </div>
             
