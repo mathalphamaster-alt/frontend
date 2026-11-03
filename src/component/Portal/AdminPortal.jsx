@@ -23,7 +23,7 @@ export default function AdminPortal() {
     const fetchRegistrations = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('http://localhost:5000/api/admin/registrations');
+            const response = await axios.get('https://backend-stnm.onrender.com/api/register');
             setRegistrations(response.data);
             setLoading(false);
         } catch (error) {
