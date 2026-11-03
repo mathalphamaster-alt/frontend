@@ -1,23 +1,121 @@
-import { Link } from 'react-router-dom';
-import './style/Navbar.css'; 
-
-function Navbar() {
-    return (
-        <nav className="navbar">
-            <div className="logo-container">
-                <img src="./src/assets/Master.png" alt='logo' className='nav-logo '/>
-
-                <h1>ALPHA MASTER</h1>
-            </div>
-            
-            <ul className="nav-links">
-                <li><Link to="/home">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
-                <li><Link to="/register" className="login-btn">Register</Link></li>
-            </ul>
-        </nav>
-    );
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #12193b; 
+    padding: 15px 40px;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(0, 230, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-export default Navbar;
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-logo {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+    background: transparent; 
+    padding: 0;
+    filter: drop-shadow(0 0 5px rgba(0, 230, 255, 0.4));
+}
+
+.navbar h1 {
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0;
+    background: linear-gradient(to right, #ffffff, #00e6ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #cbd5e1; 
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.nav-links li a:hover {
+    color: #00e6ff;
+    background: rgba(0, 230, 255, 0.08);
+    text-shadow: 0 0 10px rgba(0, 230, 255, 0.4);
+}
+
+.nav-links li a.login-btn {
+    background: linear-gradient(135deg, #00e6ff 0%, #0284c7 100%);
+    color: #000000; 
+    font-weight: 700;
+    border-radius: 20px;
+    padding: 8px 22px;
+    box-shadow: 0 4px 15px rgba(0, 230, 255, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+}
+
+.nav-links li a.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 230, 255, 0.6);
+    color: #000000;
+}
+
+/* Mobile Responsive Fix - Navbar links visible on mobile */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 15px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .logo-container {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-logo {
+        width: 55px;
+        height: 55px;
+    }
+
+    .navbar h1 {
+        font-size: 18px;
+    }
+
+    .nav-links {
+        display: flex !important; 
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .nav-links li a {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .nav-links li a.login-btn {
+        padding: 6px 16px;
+    }
+}
