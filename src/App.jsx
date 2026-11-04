@@ -40,7 +40,7 @@ function AppContent() {
     <div className="app-container">
       <ScrollToTop/>
       
-      {/* Global Image Popup Modal (Upto 10s / Auto close or Manual close) */}
+     
       {showGlobalPopup && (
         <div className="global-popup-backdrop">
           <div className="global-popup-box">
@@ -57,7 +57,7 @@ function AppContent() {
         </div>
       )}
 
-      {/* Admin route allengil mathram Navbar kanikkum */}
+   
       {!isAdminRoute && <Navbar />}
       
       <Routes>
