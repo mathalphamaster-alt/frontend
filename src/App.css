@@ -36,6 +36,10 @@ body {
   font-size: 18px;
   color: #555555;
 }
+/* =========================================
+   Global Startup Image Popup Styles (Large Size)
+========================================= */
+
 .global-popup-backdrop {
   position: fixed;
   top: 0;
@@ -65,9 +69,9 @@ body {
   border-radius: 20px;
   padding: 1.25rem;
   
-  
+  /* 80% அகலம் மற்றும் பெரிய சைஸ் வர ஏதுவாக */
   width: 80vw;
-  max-width: 1000px;
+  max-width: 1000px; /* அதிகபட்சம் 1000px வரை பெரிதாகும் */
   
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 230, 255, 0.25);
   animation: scaleUpPopup 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -123,7 +127,7 @@ body {
 .global-popup-img {
   width: 100%;
   height: auto;
-  max-height: 82vh; 
+  max-height: 82vh; /* ஸ்கிரீனின் உயத்திற்கேற்ப இமேஜ் பெரியதாகத் தெரிய */
   object-fit: contain;
   display: block;
   border-radius: 10px;
@@ -132,7 +136,7 @@ body {
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .global-popup-box {
-    width: 92vw; 
+    width: 92vw; /* மொபைலில் மட்டும் 92% அகலம் எடுக்கும் */
     padding: 0.75rem;
   }
 }
