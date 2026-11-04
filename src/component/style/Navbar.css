@@ -103,7 +103,7 @@
     }
 
     .nav-links {
-        display: flex !important;
+        display: flex !important; /* மொபைலிலும் லிங்க்களைக் காட்ட */
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
