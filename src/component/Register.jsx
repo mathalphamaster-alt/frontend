@@ -98,8 +98,8 @@ export default function Register() {
             <div className="register-container">
                 <div className="register-header">
                     <span className="am-badge">Join Now</span>
-                    <h1>Register for the Event</h1>
-                    <p>Fill out the form below to register for the AlphaMaster championship.</p>
+                    <h1>Register for the Event Updates </h1>
+                    <p>Fill out the form below to register for the AlphaMaster championship Event Update.</p>
                 </div>
 
                 <form className="register-form" onSubmit={handleSubmit}>
