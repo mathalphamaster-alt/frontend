@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Home from './component/Home';
 import About from './component/About';
@@ -8,20 +9,54 @@ import Navbar from './component/Navbar';
 import Register from './component/Register'; 
 import AdminPortal from './component/Portal/AdminPortal';
 import './App.css';
+
 import ScrollToTop from './component/ScrollToTop';
 import Terms from './component/Terms';
 import Privacy from './component/Privacy';
 import Disclaimer from './component/Disclaimer';
 import Refund from './component/Refund';
-
+import PopupImage from './assets/Popup.jpeg'; 
 
 function AppContent() {
   const location = useLocation();
   const isAdminRoute = location.pathname === '/portal';
 
+  
+  const [showGlobalPopup, setShowGlobalPopup] = useState(false);
+
+  useEffect(() => {
+
+    setShowGlobalPopup(true);
+
+  
+    const timer = setTimeout(() => {
+      setShowGlobalPopup(false);
+    }, 10000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="app-container">
       <ScrollToTop/>
+      
+      {/* Global Image Popup Modal (Upto 10s / Auto close or Manual close) */}
+      {showGlobalPopup && (
+        <div className="global-popup-backdrop">
+          <div className="global-popup-box">
+            <button 
+              className="global-popup-close" 
+              onClick={() => setShowGlobalPopup(false)}
+            >
+              &times;
+            </button>
+            <div className="global-popup-image-container">
+              <img src={PopupImage} alt="Announcement" className="global-popup-img" />
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Admin route allengil mathram Navbar kanikkum */}
       {!isAdminRoute && <Navbar />}
       
@@ -39,10 +74,8 @@ function AppContent() {
         <Route path="/portal" element={<AdminPortal />} />
       </Routes>
       
-   
       {!isAdminRoute && <Download />}
       {!isAdminRoute && <Footer />}
-      
     </div>
   );
 }
