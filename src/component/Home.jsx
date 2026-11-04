@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './style/Home.css';
-import homeback from '../assets/Popup.jpeg'; 
+import homeback from '../assets/home.jpg';
 
 export default function Home() {
+  const navigate = useNavigate();
   
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [isTimerExpired, setIsTimerExpired] = useState(false);
+
+  const journeyRef = useRef(null);
 
   useEffect(() => {
     const targetDate = new Date('January 1, 2027 00:00:00').getTime();
@@ -29,6 +33,13 @@ export default function Home() {
 
     return () => clearInterval(interval);
   }, []);
+
+  const scrollToJourney = (e) => {
+    e.preventDefault();
+    if (journeyRef.current) {
+      journeyRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="home-page-wrapper" style={{ backgroundImage: `url(${homeback})` }}>
@@ -60,6 +71,18 @@ export default function Home() {
                 <span className="am-timer-label">Seconds</span>
               </div>
             </div>
+
+            {/* 👇 சீரான பட்டன் வடிவமைப்பில் மாற்றப்பட்டுள்ளது */}
+            <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+              <button 
+                onClick={() => navigate('/register')} 
+                className="am-btn am-btn-primary"
+                style={{ cursor: 'pointer', padding: '0.75rem 2rem', fontSize: '1rem' }}
+              >
+                Go to Register Now
+              </button>
+            </div>
+
           </div>
         ) : (
           <div className="am-announcement am-post-event-box">
@@ -70,7 +93,11 @@ export default function Home() {
                   This is a dummy text box.
                   a
                 </p>
-                <button className="am-btn am-btn-primary" style={{ marginTop: '1rem' }}>
+                <button 
+                  className="am-btn am-btn-primary" 
+                  style={{ marginTop: '1rem' }}
+                  onClick={() => navigate('/register')}
+                >
                   Register Now
                 </button>
               </div>
@@ -95,13 +122,13 @@ export default function Home() {
               Step up through 12 qualifying levels and compete for the ultimate title.
             </p>
             <div className="am-btn-group">
-              <a href="#rounds" className="am-btn am-btn-primary">Explore Championship Rounds</a>
-              <a href="https://www.alphamaster.in" target="_blank" rel="noreferrer" className="am-btn am-btn-outline">Visit Official Portal</a>
+              <a href="#rounds" onClick={scrollToJourney} className="am-btn am-btn-primary">Explore Championship Rounds</a>
+              <a href="https://www.mathbook.in" target="_blank" rel="noreferrer" className="am-btn am-btn-outline">Visit Official Portal</a>
             </div>
           </div>
         </div>
 
-        {/* Updated Championship Journey Section */}
+        <div ref={journeyRef}></div>
         <h2 style={{ textAlign: 'center', marginBottom: '1rem', fontSize: '2rem', color: '#ffffff' }}>The Championship Journey</h2>
         <p style={{ textAlign: 'center', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto 3rem auto', lineHeight: '1.7' }}>
           Every AlphaMaster journey begins with learning, practice and determination. 
@@ -140,7 +167,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Extra notice matching official details */}
         <div style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.95rem', marginTop: '1rem', fontStyle: 'italic' }}>
           * Round formats, qualification criteria and tie-breaking rules will be published in the official event regulations.
         </div>
