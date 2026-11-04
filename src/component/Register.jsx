@@ -69,7 +69,7 @@ export default function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://your-backend-app-name.onrender.com/api/register', formData);
+            const response = await axios.post('https://backend-stnm.onrender.com/api/register', formData);
             console.log("Registered Successfully:", response.data);
             
             setShowPopup(true);
