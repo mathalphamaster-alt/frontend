@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './style/Register.css';
-import Registerback from '../assets/Popup.jpeg'; 
+import Registerback from '../assets/Popup.jpeg'; // Background Image இம்போர்ட் செய்கிறோம்
 
 const indianStatesAndDistricts = {
     "Andhra Pradesh": ["Anantapur", "Chittoor", "East Godavari", "Guntur", "Kadapa", "Krishna", "Kurnool", "Nellore", "Prakasam", "Srikakulam", "Visakhapatnam", "Vizianagaram", "West Godavari"],
