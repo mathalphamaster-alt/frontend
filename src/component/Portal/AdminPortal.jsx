@@ -23,7 +23,7 @@ export default function AdminPortal() {
     const fetchRegistrations = async () => {
         setLoading(true);
         try {
-       const response = await axios.get("https://backend-stnm.onrender.com/api/admin/registrations");
+            const response = await axios.get("https://backend-stnm.onrender.com/api/admin/registrations");
             setRegistrations(response.data);
             setLoading(false);
         } catch (error) {
@@ -59,7 +59,7 @@ export default function AdminPortal() {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     const handleView = (reg) => {
-        alert(`Viewing Details:\nName: ${reg.name}\nEmail: ${reg.email}\nPhone: ${reg.phone}`);
+        alert(`Viewing Details:\nName: ${reg.name}\nEmail: ${reg.email}\nPhone: ${reg.phone}\nState: ${reg.state}\nCity: ${reg.city}`);
     };
 
     const handleEdit = (id) => {
@@ -69,10 +69,14 @@ export default function AdminPortal() {
     const handleDelete = async (id) => {
         if (window.confirm("Are you sure you want to delete this registration?")) {
             try {
+                // 👇 டேட்டாபேஸிலிருந்து ரெக்கார்டை நீக்க லைவ் API கால் சேர்க்கப்பட்டுள்ளது
+                await axios.delete(`https://backend-stnm.onrender.com/api/admin/registrations/${id}`);
+                
                 setRegistrations(registrations.filter(reg => reg._id !== id));
                 alert("Deleted Successfully!");
             } catch (error) {
                 console.error("Error deleting record", error);
+                alert("Failed to delete registration");
             }
         }
     };
@@ -115,7 +119,6 @@ export default function AdminPortal() {
     return (
         <div className="admin-container">
             <div className="admin-header">
-            
                 <div className="admin-header-title">
                     <img src={logo} alt="AlphaMaster Logo" className="admin-dashboard-logo" />
                     <h1>AlphaMaster - Admin Portal</h1>
@@ -147,7 +150,6 @@ export default function AdminPortal() {
                                 {currentRecords.length > 0 ? (
                                     currentRecords.map((reg, index) => (
                                         <tr key={reg._id}>
-                                        
                                             <td><strong>{registrations.length - (indexOfFirstRecord + index)}</strong></td>
                                             <td>{reg.name}</td>
                                             <td>{reg.email}</td>
@@ -164,7 +166,6 @@ export default function AdminPortal() {
                                     ))
                                 ) : (
                                     <tr>
-                                     
                                         <td colSpan="8" className="no-data">No registrations found.</td> 
                                     </tr>
                                 )}
