@@ -25,23 +25,28 @@ function AppContent() {
   const [showGlobalPopup, setShowGlobalPopup] = useState(false);
 
   useEffect(() => {
-    // பேஜ் ஓபன் ஆனவுடன் போப்-அப் காட்டுகிறோம்
-    setShowGlobalPopup(true);
+    // Admin route இல்லையென்றால் மட்டும் பேஜ் ஓபன் ஆனவுடன் போப்-அப் காட்டுகிறோம்
+    if (!isAdminRoute) {
+      setShowGlobalPopup(true);
 
-    // சரியாக 10 விநாடிகளுக்குப் பிறகு (10000ms) போப்-அப் ஆட்டோமேட்டிக்காக மறையும்
-    const timer = setTimeout(() => {
+      // சரியாக 10 விநாடிகளுக்குப் பிறகு (10000ms) போப்-அப் ஆட்டோமேட்டிக்காக மறையும்
+      const timer = setTimeout(() => {
+        setShowGlobalPopup(false);
+      }, 10000);
+
+      return () => clearTimeout(timer);
+    } else {
+      // Admin page-ல் இருந்தால் போப்-அப் வராமல் மறைத்துவிடுகிறோம்
       setShowGlobalPopup(false);
-    }, 10000);
-
-    return () => clearTimeout(timer);
-  }, []);
+    }
+  }, [isAdminRoute]); // isAdminRoute மாறும்போது இது ஒர்க் ஆகும்
 
   return (
     <div className="app-container">
       <ScrollToTop/>
       
-      {/* Global Image Popup Modal (Upto 10s / Auto close or Manual close) */}
-      {showGlobalPopup && (
+      {/* Global Image Popup Modal (Upto 10s / Auto close or Manual close) - Admin page-ல் வராது */}
+      {!isAdminRoute && showGlobalPopup && (
         <div className="global-popup-backdrop">
           <div className="global-popup-box">
             <button 
