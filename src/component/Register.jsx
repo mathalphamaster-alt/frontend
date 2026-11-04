@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './style/Register.css';
-import Registerback from '../assets/rebac.png';
-
+import Registerback from '../assets/Popup.jpeg'; 
 
 const indianStatesAndDistricts = {
     "Andhra Pradesh": ["Anantapur", "Chittoor", "East Godavari", "Guntur", "Kadapa", "Krishna", "Kurnool", "Nellore", "Prakasam", "Srikakulam", "Visakhapatnam", "Vizianagaram", "West Godavari"],
@@ -60,7 +59,6 @@ export default function Register() {
         const { name, value } = e.target;
         
         if (name === 'state') {
-          
             setFormData({ ...formData, state: value, city: '' });
             setAvailableDistricts(indianStatesAndDistricts[value] || []);
         } else {
@@ -71,19 +69,15 @@ export default function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            
-            const response = await axios.post('https://backend-stnm.onrender.com/api/register', formData);
+            const response = await axios.post('http://localhost:5000/api/register', formData);
             console.log("Registered Successfully:", response.data);
             
-            
             setShowPopup(true);
-            
             
             setFormData({ name: '', email: '', phone: '', state: '', city: '' });
             setAvailableDistricts([]);
             
         } catch (err) {
-          
             if (err.response && err.response.data && err.response.data.error) {
                 alert(err.response.data.error);
             } else {
@@ -98,8 +92,7 @@ export default function Register() {
     };
 
     return (
-        <div className="register-page-wrapper">
-            <img src={Registerback} alt="Background" className="register-bg-image" />
+        <div className="register-page-wrapper" style={{ backgroundImage: `url(${Registerback})` }}>
             <div className="register-overlay"></div>
 
             <div className="register-container">
