@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './style/Home.css';
-import homeback from '../assets/home.jpg';
+import homeback from '../assets/Popup.jpeg'; 
 
 export default function Home() {
   
@@ -22,7 +22,6 @@ export default function Home() {
           seconds: Math.floor((difference % (1000 * 60)) / 1000),
         });
       } else {
-        
         setIsTimerExpired(true);
         clearInterval(interval);
       }
@@ -35,12 +34,7 @@ export default function Home() {
     <div className="home-page-wrapper" style={{ backgroundImage: `url(${homeback})` }}>
       <div className="am-container">
         
-        {/* 
-          
-           Dummy Text & Image Box 
-        */}
         {!isTimerExpired ? (
-       
           <div className="am-announcement am-top-countdown-box">
             <div className="am-badge" style={{ marginBottom: '0.75rem' }}>Official Announcement Countdown</div>
             <h3><strong>Save the Date — January 1, 2027</strong></h3>
@@ -48,7 +42,6 @@ export default function Home() {
               The Event Schedule, Regulations, Terms & Conditions, Awards, and venue will be officially announced at <strong>www.alphamaster.in</strong>.
             </p>
             
-            {/* Live Timer Grid */}
             <div className="am-timer-grid">
               <div className="am-timer-card">
                 <span className="am-timer-num">{timeLeft.days}</span>
@@ -69,10 +62,8 @@ export default function Home() {
             </div>
           </div>
         ) : (
-        //dummy
           <div className="am-announcement am-post-event-box">
             <div className="am-post-event-content">
-           
               <div className="am-post-text-box">
                 <h3>The Wait is Over!</h3>
                 <p>
@@ -84,7 +75,6 @@ export default function Home() {
                 </button>
               </div>
               
-              {/* Dummy Image Box */}
               <div className="am-post-image-box">
                 <div className="dummy-image-placeholder">
                   <span>[ Your Image Here ]</span>
@@ -93,7 +83,8 @@ export default function Home() {
             </div>
           </div>
         )}
-  <div className="am-hero-box" style={{ marginTop: '2.5rem' }}>
+
+        <div className="am-hero-box" style={{ marginTop: '2.5rem' }}>
           <div className="am-hero-content">
             <span className="am-badge">Presented by Mathbook App</span>
             
@@ -110,40 +101,48 @@ export default function Home() {
           </div>
         </div>
 
-       
+        {/* Updated Championship Journey Section */}
         <h2 style={{ textAlign: 'center', marginBottom: '1rem', fontSize: '2rem', color: '#ffffff' }}>The Championship Journey</h2>
-        <p style={{ textAlign: 'center', color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto 3rem auto' }}>
-          12 Levels. 4 Championship Rounds. 1 Champion. Complete all qualifying levels in Mathbook App Premium to enter the grand stage.
+        <p style={{ textAlign: 'center', color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto 3rem auto', lineHeight: '1.7' }}>
+          Every AlphaMaster journey begins with learning, practice and determination. 
+          12 Levels. 4 Championship Rounds. 1 Champion. 
+          Learners who successfully complete all 12 qualifying levels in Mathbook App Premium become eligible to participate in the Grand Event. 
+          The championship progresses through four competitive rounds:
         </p>
 
         <div className="am-grid-4">
           <div className="am-box">
             <div className="am-step-number">01</div>
             <h3>The Qualifying Challenge</h3>
-            <p>Eligible learners compete to demonstrate math knowledge and problem-solving abilities. <strong>Top 500 advance.</strong></p>
+            <p>The eligible learners compete to demonstrate their mathematical knowledge and problem-solving abilities. <strong>The top 500 performers advance.</strong></p>
             <button className="am-mode-badge online">Online Mode</button>
           </div>
 
           <div className="am-box">
             <div className="am-step-number">02</div>
             <h3>The Excellence Challenge</h3>
-            <p>A demanding stage designed to test accuracy, consistency, and analytical thinking. <strong>Top 50 advance.</strong></p>
+            <p>The top 500 compete in a more demanding stage designed to test accuracy, consistency and analytical thinking. <strong>The top 50 advance.</strong></p>
             <button className="am-mode-badge online">Online Mode</button>
           </div>
 
           <div className="am-box">
             <div className="am-step-number">03</div>
             <h3>The Master Challenge</h3>
-            <p>The top 50 face an advanced mathematical challenge. Only the <strong>top 5 performers</strong> qualify for the final round.</p>
+            <p>The top 50 face an advanced mathematical challenge. <strong>Only the top 5 performers qualify for the final round.</strong></p>
             <button className="am-mode-badge offline">Offline Mode</button>
           </div>
 
           <div className="am-box">
             <div className="am-step-number">04</div>
             <h3>The Grand Finale</h3>
-            <p>The final five compete for ultimate glory: <strong>1 AlphaMaster Title Winner</strong> and <strong>4 Runners-up</strong>.</p>
+            <p>The final five competitors compete for the ultimate honour — <strong>1 AlphaMaster Title Winner</strong> and <strong>4 AlphaMaster Runners-up</strong>.</p>
             <button className="am-mode-badge offline">Offline Mode</button>
           </div>
+        </div>
+
+        {/* Extra notice matching official details */}
+        <div style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.95rem', marginTop: '1rem', fontStyle: 'italic' }}>
+          * Round formats, qualification criteria and tie-breaking rules will be published in the official event regulations.
         </div>
       </div>
     </div>
