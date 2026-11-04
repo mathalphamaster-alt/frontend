@@ -15,20 +15,20 @@ import Terms from './component/Terms';
 import Privacy from './component/Privacy';
 import Disclaimer from './component/Disclaimer';
 import Refund from './component/Refund';
-import PopupImage from './assets/Popup.jpeg'; 
+import PopupImage from './assets/Popup.jpeg'; // Popup இமேஜ் இம்போர்ட் செய்கிறோம்
 
 function AppContent() {
   const location = useLocation();
   const isAdminRoute = location.pathname === '/portal';
 
-  
+  // --- Popup State Logic ---
   const [showGlobalPopup, setShowGlobalPopup] = useState(false);
 
   useEffect(() => {
-
+    // பேஜ் ஓபன் ஆனவுடன் போப்-அப் காட்டுகிறோம்
     setShowGlobalPopup(true);
 
-  
+    // சரியாக 10 விநாடிகளுக்குப் பிறகு (10000ms) போப்-அப் ஆட்டோமேட்டிக்காக மறையும்
     const timer = setTimeout(() => {
       setShowGlobalPopup(false);
     }, 10000);
@@ -40,7 +40,7 @@ function AppContent() {
     <div className="app-container">
       <ScrollToTop/>
       
-     
+      {/* Global Image Popup Modal (Upto 10s / Auto close or Manual close) */}
       {showGlobalPopup && (
         <div className="global-popup-backdrop">
           <div className="global-popup-box">
@@ -57,7 +57,7 @@ function AppContent() {
         </div>
       )}
 
-   
+      {/* Admin route allengil mathram Navbar kanikkum */}
       {!isAdminRoute && <Navbar />}
       
       <Routes>
